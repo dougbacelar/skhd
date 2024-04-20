@@ -40,8 +40,8 @@ hyper - k: yabai -m window --resize top:0:-20 || yabai -m window --resize bottom
 # swap windows while maintaining the layout sizes
 alt + ctrl - j : yabai -m window --swap south
 alt + ctrl - k : yabai -m window --swap north
-alt + ctrl - h : yabai -m window --swap west
-alt + ctrl - l : yabai -m window --swap east
+alt + ctrl - h : yabai -m window --swap west || (yabai -m window --display west && yabai -m display --focus west)
+alt + ctrl - l : yabai -m window --swap east || (yabai -m window --display east && yabai -m display --focus east)
 
 # move window and readjust others to make space for it
 alt + cmd - j : yabai -m window --warp south
@@ -50,8 +50,8 @@ alt + cmd - h : yabai -m window --warp west
 alt + cmd - l : yabai -m window --warp east
 
 # move window to display (left right)
-alt + ctrl - s : yabai -m window --display west && yabai -m display --focus west
-alt + ctrl - g : yabai -m window --display east && yabai -m display --focus east
+# alt + ctrl - s : yabai -m window --display west && yabai -m display --focus west
+# alt + ctrl - g : yabai -m window --display east && yabai -m display --focus east
 
 # move window to specified space
 alt + ctrl - 1 : yabai -m window --space 1
