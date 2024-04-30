@@ -1,3 +1,33 @@
+# Usage
+	# --install-service: Install launchd service file into ~/Library/LaunchAgents/com.koekeishiya.skhd.plist
+	#     skhd --install-service
+	# --uninstall-service: Remove launchd service file ~/Library/LaunchAgents/com.koekeishiya.skhd.plist
+	#     skhd --uninstall-service
+	# --start-service: Run skhd as a service through launchd
+	#     skhd --start-service
+	# --restart-service: Restart skhd service
+	#     skhd --restart-service
+	# --stop-service: Stop skhd service from running
+	#     skhd --stop-service
+	# -V | --verbose: Output debug information
+	#     skhd -V
+	# -P | --profile: Output profiling information
+	#     skhd -P
+	# -v | --version: Print version number to stdout
+	#     skhd -v
+	# -c | --config: Specify location of config file
+	#     skhd -c ~/.skhdrc
+	# -o | --observe: Output keycode and modifiers of event. Ctrl+C to quit
+	#     skhd -o
+	# -r | --reload: Signal a running instance of skhd to reload its config file
+	#     skhd -r
+	# -h | --no-hotload: Disable system for hotloading config file
+	#     skhd -h
+	# -k | --key: Synthesize a keypress (same syntax as when defining a hotkey)
+	#     skhd -k "shift + alt - 7"
+	# -t | --text: Synthesize a line of text
+	#     skhd -t "hello, worldシ"
+
 # change window focus within space
 alt - j: yabai -m window --focus south || yabai -m display --focus south
 alt - k: yabai -m window --focus north || yabai -m display --focus north
@@ -6,36 +36,27 @@ alt - l: yabai -m window --focus east || yabai -m display --focus east
 alt - n: yabai -m window --focus next || yabai -m display --focus next
 alt - p: yabai -m window --focus prev || yabai -m display --focus prev
 
-# change focus between external displays (left right)
-alt - s: yabai -m display --focus west
-alt - g: yabai -m display --focus east
-
 # rotate layout clockwise
 alt - r : yabai -m space --rotate 270
-
 # flip along y-axis
 alt - y : yabai -m space --mirror y-axis
-
 # flip along x-axis
 alt - x : yabai -m space --mirror x-axis
-
-# toggle window float
-alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
-
-# even out tree of windows
-alt - e : yabai -m space --balance
+# toggle window split type
+alt - c : yabai -m window --toggle split
 
 # full screen
 alt - f : yabai -m window --toggle zoom-fullscreen
-
-# toggle window split type
-alt - c : yabai -m window --toggle split
+# toggle window float
+alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
 # increase window size
 hyper - h: yabai -m window --resize left:-50:0 || yabai -m window --resize right:-50:0
 hyper - l: yabai -m window --resize right:50:0 || yabai -m window --resize left:50:0
 hyper - j: yabai -m window --resize bottom:0:20 || yabai -m window --resize top:0:20
 hyper - k: yabai -m window --resize top:0:-20 || yabai -m window --resize bottom:0:-20
+# even out tree of windows
+alt - e : yabai -m space --balance
 
 # swap windows while maintaining the layout sizes
 alt + ctrl - j : yabai -m window --swap south
@@ -60,6 +81,13 @@ alt + ctrl - 3 : yabai -m window --space 3
 alt + ctrl - 4 : yabai -m window --space 4
 alt + ctrl - 5 : yabai -m window --space 5
 alt + ctrl - 6 : yabai -m window --space 6
+
+# right command app hotkeys
+rcmd - w : open -a Wezterm
+rcmd - f : open -a Finder
+rcmd - n : open -a Notes
+rcmd - s : open -a Safari
+rcmd - c : open -a 'Google Chrome'
 
 # start/stop yabai
 cmd + alt - s : yabai --start-service
